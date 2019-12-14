@@ -1,0 +1,20 @@
+{
+  "name": "football-api",
+  "version": "1.0.0",
+  "description": "my football api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ademola",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-xml-bodyparser": "^0.3.0",
+    "js2xmlparser": "^4.0.0",
+    "jsontoxml": "^1.0.1",
+    "mysql": "^2.15.0",
+    "xml": "^1.0.1"
+  }
+}
