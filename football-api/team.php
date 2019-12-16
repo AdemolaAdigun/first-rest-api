@@ -25,7 +25,7 @@ if(isset($_GET["name"])){
     </style>
 </head>
 <body>
-    <h2>GAME 1</h2>
+    <h2>First Leg</h2>
     <table style='width:100%'>
         <tr>
             <th>Player name</th>
@@ -47,7 +47,7 @@ if(isset($_GET["name"])){
     ?>
     </table>
     <br>
-    <h2>GAME 2</h2>
+    <h2>Second Leg</h2>
     <table style='width:100%'>
         <tr>
             <th>Player name</th>

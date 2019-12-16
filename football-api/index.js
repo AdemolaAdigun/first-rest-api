@@ -23,16 +23,6 @@ mysqlConnection.connect((err) => {
 
 app.listen(3000, () => console.log('Express server is runnig at port no : 3000'));
 
-// Get all employees
-// app.get('/players', (req, res) => {
-//     mysqlConnection.query('SELECT * FROM players', (err, rows, fields) => { 
-//         if (!err)
-//             res.send(rows);
-//         else
-//             console.log(err);  
-//     })
-// });
-
 //Get all matches
 app.get('/matches', (req, res) => {
     mysqlConnection.query('SELECT MatchID, TeamHomeID, TeamHomeFormation, ResultOfTeamHome, TeamID, Name FROM matches INNER JOIN teams ON matches.TeamHomeID = teams.TeamID UNION SELECT MatchID, TeamAwayID, TeamAwayFormation, ResultOfTeamAway, TeamID, Name FROM matches INNER JOIN teams ON matches.TeamAwayID = teams.TeamID ORDER BY MatchID;', (err, rows, fields) => {

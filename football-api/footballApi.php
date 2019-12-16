@@ -24,6 +24,7 @@
 
 <body>
     <h1>MATCHES</h1>
+    <h2>First Leg</h2>
     <table style='width:100%'>
         <tr>
             <th>Home Team</th>
@@ -32,7 +33,22 @@
             <th>Goals</th> 
         </tr>
     <?php
-        for($i=0;$i<12;$i+=2){
+        for($i=0;$i<5;$i+=2){
+            echo "<tr><td><a href='team.php?name=".$data[$i]["Name"]."'>".$data[$i]["Name"]."</a></td><td>".$data[$i]["ResultOfTeamHome"]."</td><td>".$data[$i+1]["Name"]."</td><td>".$data[$i+1]["ResultOfTeamHome"]."</td></tr>";
+        }
+    ?>
+    </table>
+    <br>
+    <h2>Second Leg</h2>
+    <table style='width:100%'>
+        <tr>
+            <th>Home Team</th>
+            <th>Goals</th> 
+            <th>Away Team</th>
+            <th>Goals</th> 
+        </tr>
+    <?php
+        for($i=5;$i<11;$i+=2){
             echo "<tr><td><a href='team.php?name=".$data[$i]["Name"]."'>".$data[$i]["Name"]."</a></td><td>".$data[$i]["ResultOfTeamHome"]."</td><td>".$data[$i+1]["Name"]."</td><td>".$data[$i+1]["ResultOfTeamHome"]."</td></tr>";
         }
     ?>
