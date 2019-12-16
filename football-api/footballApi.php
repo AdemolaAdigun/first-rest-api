@@ -15,13 +15,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>footballApi</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Matches</h1>
+    <h1>MATCHES</h1>
+    <table style='width:100%'>
+        <tr>
+            <th>Home Team</th>
+            <th>Goals</th> 
+            <th>Away Team</th>
+            <th>Goals</th> 
+        </tr>
     <?php
         for($i=0;$i<12;$i+=2){
-            echo "<p>".$data[$i]["Name"]." : ".$data[$i]["ResultOfTeamHome"]."<br> vs <br>".$data[$i+1]["Name"]." : ".$data[$i+1]["ResultOfTeamHome"]."</p> <hr>";
+            echo "<tr><td><a href='team.php?name=".$data[$i]["Name"]."'>".$data[$i]["Name"]."</a></td><td>".$data[$i]["ResultOfTeamHome"]."</td><td>".$data[$i+1]["Name"]."</td><td>".$data[$i+1]["ResultOfTeamHome"]."</td></tr>";
         }
     ?>
+    </table>
 </body>
 </html>

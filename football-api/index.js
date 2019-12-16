@@ -23,15 +23,15 @@ mysqlConnection.connect((err) => {
 
 app.listen(3000, () => console.log('Express server is runnig at port no : 3000'));
 
-//Get all employees
-app.get('/players', (req, res) => {
-    mysqlConnection.query('SELECT * FROM players', (err, rows, fields) => { 
-        if (!err)
-            res.send(rows);
-        else
-            console.log(err);  
-    })
-});
+// Get all employees
+// app.get('/players', (req, res) => {
+//     mysqlConnection.query('SELECT * FROM players', (err, rows, fields) => { 
+//         if (!err)
+//             res.send(rows);
+//         else
+//             console.log(err);  
+//     })
+// });
 
 //Get all matches
 app.get('/matches', (req, res) => {
@@ -45,7 +45,7 @@ app.get('/matches', (req, res) => {
 
 //Get all teams
 app.get('/teams', (req, res) => {
-    mysqlConnection.query('SELECT * FROM teams', (err, rows, fields) => {
+    mysqlConnection.query('SELECT Name, Goals, Shots, ShotsOnTarget, Fouls, YellowCards, RedCards, Passes, Dribbles, Tackles, Saves FROM premierleague.actions inner join players on actions.PlayerID = players.PlayerID where teamID = 1;', (err, rows, fields) => {
         if (!err)
             res.send(rows);
         else
@@ -53,12 +53,12 @@ app.get('/teams', (req, res) => {
     })
 });
 
-//Get all actions
-app.get('/actions', (req, res) => {
-    mysqlConnection.query('SELECT * FROM actions', (err, rows, fields) => {
-        if (!err)
-            res.send(rows);
-        else
-            console.log(err);
-    })
-});
+// Get all actions
+// app.get('/actions', (req, res) => {
+//     mysqlConnection.query('SELECT * FROM actions', (err, rows, fields) => {
+//         if (!err)
+//             res.send(rows);
+//         else
+//             console.log(err);
+//     })
+// });
