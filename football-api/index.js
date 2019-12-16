@@ -43,8 +43,8 @@ app.get('/matches', (req, res) => {
     })
 });
 
-//Get all teams
-app.get('/teams', (req, res) => {
+//Get all RealMadrid
+app.get('/RealMadrid', (req, res) => {
     mysqlConnection.query('SELECT Name, Goals, Shots, ShotsOnTarget, Fouls, YellowCards, RedCards, Passes, Dribbles, Tackles, Saves FROM premierleague.actions inner join players on actions.PlayerID = players.PlayerID where teamID = 1;', (err, rows, fields) => {
         if (!err)
             res.send(rows);
@@ -53,12 +53,52 @@ app.get('/teams', (req, res) => {
     })
 });
 
-// Get all actions
-// app.get('/actions', (req, res) => {
-//     mysqlConnection.query('SELECT * FROM actions', (err, rows, fields) => {
-//         if (!err)
-//             res.send(rows);
-//         else
-//             console.log(err);
-//     })
-// });
+//Get all Barcelona
+app.get('/Barcelona', (req, res) => {
+    mysqlConnection.query('SELECT Name, Goals, Shots, ShotsOnTarget, Fouls, YellowCards, RedCards, Passes, Dribbles, Tackles, Saves FROM premierleague.actions inner join players on actions.PlayerID = players.PlayerID where teamID = 2;', (err, rows, fields) => {
+        if (!err)
+            res.send(rows);
+        else
+            console.log(err);
+    })
+});
+
+//Get all ManC
+app.get('/ManchesterCity', (req, res) => {
+    mysqlConnection.query('SELECT Name, Goals, Shots, ShotsOnTarget, Fouls, YellowCards, RedCards, Passes, Dribbles, Tackles, Saves FROM premierleague.actions inner join players on actions.PlayerID = players.PlayerID where teamID = 3;', (err, rows, fields) => {
+        if (!err)
+            res.send(rows);
+        else
+            console.log(err);
+    })
+});
+
+//Get all Arsenal
+app.get('/Arsenal', (req, res) => {
+    mysqlConnection.query('SELECT Name, Goals, Shots, ShotsOnTarget, Fouls, YellowCards, RedCards, Passes, Dribbles, Tackles, Saves FROM premierleague.actions inner join players on actions.PlayerID = players.PlayerID where teamID = 4;', (err, rows, fields) => {
+        if (!err)
+            res.send(rows);
+        else
+            console.log(err);
+    })
+});
+
+//Get all Liverpool
+app.get('/Liverpool', (req, res) => {
+    mysqlConnection.query('SELECT Name, Goals, Shots, ShotsOnTarget, Fouls, YellowCards, RedCards, Passes, Dribbles, Tackles, Saves FROM premierleague.actions inner join players on actions.PlayerID = players.PlayerID where teamID = 5;', (err, rows, fields) => {
+        if (!err)
+            res.send(rows);
+        else
+            console.log(err);
+    })
+});
+
+//Get all Tottenham
+app.get('/Tottenham', (req, res) => {
+    mysqlConnection.query('SELECT Name, Goals, Shots, ShotsOnTarget, Fouls, YellowCards, RedCards, Passes, Dribbles, Tackles, Saves FROM premierleague.actions inner join players on actions.PlayerID = players.PlayerID where teamID = 6;', (err, rows, fields) => {
+        if (!err)
+            res.send(rows);
+        else
+            console.log(err);
+    })
+});
