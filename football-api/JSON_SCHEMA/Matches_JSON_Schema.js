@@ -1,5 +1,6 @@
-((w)=>{
-    w['matchesjsonSchema'] = {
+var Ajv = require('ajv'),
+    ajv = new Ajv({logger: console}),
+    schema = {
         "title": "An array of items",
         "items": {
             "title": "An object value",
@@ -70,4 +71,8 @@
             }
         }
     };
-})(window);
+pm.test('Schema is valid', function() {
+    var data = pm.response.json();
+    pm.expect(ajv.validate(schema, data)).to.be.true;
+});
+    
