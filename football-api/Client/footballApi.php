@@ -1,12 +1,14 @@
 <?php
-    $curl = curl_init();
+    $ch = curl_init();
     $url = 'http://localhost:3000/matches';
-    curl_setopt($curl, CURLOPT_URL,$url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $result = curl_exec($curl);
-    curl_close($curl);
+    curl_setopt($ch, CURLOPT_URL,$url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result = curl_exec($ch);
+    curl_close($ch);
     $data = json_decode($result, true);
     // var_dump($data);
+    if(isset($_GET["Submit"]) && isset( $_GET["state"])){
+        echo"xml";    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +25,11 @@
 </head>
 
 <body>
+<form action="footballApi.php" method="GET">
+    <input type="radio" name="state" value="JSON"> JSON
+    <input type="radio" name="state" value="XML"> XML &nbsp
+    <input type="submit" name="Submit" value="Submit">
+</form>
     <h1>MATCHES</h1>
     <h2>First Leg</h2>
     <table style='width:100%'>
