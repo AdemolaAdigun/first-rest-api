@@ -19,12 +19,15 @@
 if (isset($_GET["XML"])) {
     $ch = curl_init();
     $url = 'http://localhost:3000/matchesXML';
+    curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_URL, $url); // get the url contents
     $result = curl_exec($ch); // execute curl request
     curl_close($ch);
-    $data = simplexml_load_string($result);
-    var_export($data);
+    $data = new SimpleXMLElement($result, LIBXML_NOCDATA);
+    // var_export($data);
+    print("<pre>".print_r($data,true)."</pre>");
+    echo $data->Result[0];
     ?>
 
 <body>
@@ -41,8 +44,8 @@ if (isset($_GET["XML"])) {
             <th>Goals</th>
         </tr>
         <?php
-for ($i = 0; $i < 5; $i += 2) {
-        echo "<tr><td><a href='team.php?name=" . $data[$i]["Name"] . "'>" . $data[$i]["Name"] . "</a></td><td>" . $data[$i]["ResultOfTeamHome"] . "</td><td>" . $data[$i + 1]["Name"] . "</td><td>" . $data[$i + 1]["ResultOfTeamHome"] . "</td></tr>";
+for ($i = 0; $i < 5; $i+=2) {
+        echo "<tr><td><a href='team.php?name=" . $data->matches[$i]->Name. "'>" . $data->matches[$i]->Name. "</a></td><td>" . $data->matches[$i]->ResultOfTeamHome . "</td><td>" . $data->matches[$i+1]->Name . "</td><td>" . $data->matches[$i+1]->ResultOfTeamHome . "</td></tr>";
     }
     ?>
     </table>
@@ -57,7 +60,7 @@ for ($i = 0; $i < 5; $i += 2) {
         </tr>
         <?php
 for ($i = 6; $i < 12; $i += 2) {
-        echo "<tr><td><a href='team.php?name=" . $data[$i]["Name"] . "'>" . $data[$i]["Name"] . "</a></td><td>" . $data[$i]["ResultOfTeamHome"] . "</td><td>" . $data[$i + 1]["Name"] . "</td><td>" . $data[$i + 1]["ResultOfTeamHome"] . "</td></tr>";
+    echo "<tr><td><a href='team.php?name=" . $data->matches[$i]->Name. "'>" . $data->matches[$i]->Name. "</a></td><td>" . $data->matches[$i]->ResultOfTeamHome . "</td><td>" . $data->matches[$i+1]->Name . "</td><td>" . $data->matches[$i+1]->ResultOfTeamHome . "</td></tr>";
     }
     ?>
     </table>
