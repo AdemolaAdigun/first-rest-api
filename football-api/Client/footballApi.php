@@ -25,15 +25,11 @@ if (isset($_GET["XML"])) {
     $result = curl_exec($ch); // execute curl request
     curl_close($ch);
     $data = new SimpleXMLElement($result, LIBXML_NOCDATA);
-    // var_export($data);
-    print("<pre>".print_r($data,true)."</pre>");
-    echo $data->Result[0];
+    //print("<pre>".print_r($data,true)."</pre>");
+    echo "<h1 align='center'> XML is call used.</h1>";
     ?>
 
 <body>
-    <form action="footballApi.php" method="GET">
-        <input type="submit" name="XML" value="XML">
-    </form>
     <h1>MATCHES</h1>
     <h2>First Leg</h2>
     <table style='width:100%'>
