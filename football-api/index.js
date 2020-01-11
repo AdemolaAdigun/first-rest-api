@@ -1,9 +1,12 @@
-const mysql = require('mysql');
+// Declaring all packages used */
+const mysql = require('zmysql');
 const express = require('express');
 var js2xmlparser = require("js2xmlparser");
 var app = express();
 const bodyparser = require('body-parser');
 app.use(bodyparser.json());
+
+// Creating MYSQL connection */
 var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -12,6 +15,7 @@ var mysqlConnection = mysql.createConnection({
     multipleStatements: true
 });
 
+// Checking MYSQL connection */
 mysqlConnection.connect((err) => {
     if (!err)
         console.log('DB connection succeded.');
@@ -19,9 +23,11 @@ mysqlConnection.connect((err) => {
         console.log('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2));
 });
 
+/* Assigning port 3000 to be used */
 app.listen(3000, () => console.log('Express server is runnig at port no : 3000'));
 
-//Get all matches JSON
+
+/* Routes */
 app.get('/matches', (req, res) => {
     mysqlConnection.query('SELECT MatchID, TeamHomeID, TeamHomeFormation, ResultOfTeamHome, TeamID, Name FROM matches INNER JOIN teams ON matches.TeamHomeID = teams.TeamID UNION SELECT MatchID, TeamAwayID, TeamAwayFormation, ResultOfTeamAway, TeamID, Name FROM matches INNER JOIN teams ON matches.TeamAwayID = teams.TeamID ORDER BY MatchID;', (err, rows, fields) => {
         if (!err)
