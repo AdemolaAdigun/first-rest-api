@@ -38,7 +38,7 @@ app.get('/matches', (req, res) => {
 });
 
 //Get all matches XML
-app.get('/matches/XML', (req, res) => {
+app.get('/matchesXML', (req, res) => {
     mysqlConnection.query('SELECT MatchID, TeamHomeID, TeamHomeFormation, ResultOfTeamHome, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamHomeID = teams.TeamID UNION SELECT MatchID, TeamAwayID, TeamAwayFormation, ResultOfTeamAway, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamAwayID = teams.TeamID ORDER BY MatchID;', (err, rows, fields) => {
         if (!err){
             res.send(js2xmlparser.parse("matches",rows));
