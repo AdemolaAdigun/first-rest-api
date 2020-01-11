@@ -72,7 +72,7 @@
     //XML DATA Section
         echo "<h1>".$_GET["name"]."</h1>";
         $ch2 = curl_init();
-        $url2 = 'http://localhost:3000/'.$_GET["name"].'XML';
+        $url2 = 'http://localhost:3000/'.$_GET["name"].'/XML';
         //echo $url2;
         curl_setopt($ch2, CURLOPT_HEADER, 0);
         curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
@@ -81,7 +81,7 @@
         curl_close($ch2);
         $data2 = new SimpleXMLElement($result2, LIBXML_NOCDATA);
         //"<pre>".var_dump($data2)."</pre>";
-        $team = $_GET["name"];
+        $team = "team";
         // echo $team;
         // echo $url2;
     ?>
