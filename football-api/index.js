@@ -4,7 +4,6 @@ var js2xmlparser = require("js2xmlparser");
 var app = express();
 const bodyparser = require('body-parser');
 app.use(bodyparser.json());
-
 var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -20,8 +19,8 @@ mysqlConnection.connect((err) => {
         console.log('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2));
 });
 
-
 app.listen(3000, () => console.log('Express server is runnig at port no : 3000'));
+
 //Get all matches JSON
 app.get('/matches', (req, res) => {
     mysqlConnection.query('SELECT MatchID, TeamHomeID, TeamHomeFormation, ResultOfTeamHome, TeamID, Name FROM matches INNER JOIN teams ON matches.TeamHomeID = teams.TeamID UNION SELECT MatchID, TeamAwayID, TeamAwayFormation, ResultOfTeamAway, TeamID, Name FROM matches INNER JOIN teams ON matches.TeamAwayID = teams.TeamID ORDER BY MatchID;', (err, rows, fields) => {
@@ -43,7 +42,25 @@ app.get('/matchesXML', (req, res) => {
     })
 });
 
+app.post('/addTeam/:name',  (req, res) => {
+    mysqlConnection.query('INSERT INTO teams (Name) VALUES (?)',[req.params.name],(err, rows, fields) => {
+        if (!err){
+            console.log("Team added!");
+        }
+        else
+            console.log(err);
+    })
+});
 
+app.delete('/deleteTeam/:name', (req, res) => {
+     mysqlConnection.query('DELETE FROM teams WHERE Name = ?',[req.params.name],(err, rows, fields) => {
+        if (!err){
+            console.log("Team removed!");
+        }
+        else
+            console.log(err);
+    })
+});
 
 //Get all RealMadrid JSON
 app.get('/RealMadrid', (req, res) => {
