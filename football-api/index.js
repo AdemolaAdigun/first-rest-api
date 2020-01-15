@@ -58,6 +58,16 @@ app.post('/addTeam/:name',  (req, res) => {
     })
 });
 
+app.put('/updateTeam/:name', (req, res) => {
+    mysqlConnection.query('UPDATE teams SET Name = '+ req.body.Name +' WHERE Name = ?',[req.params.name],(err, rows, fields) => {
+        if (!err){
+            console.log("Team updated!");
+        }
+        else
+            console.log(err);
+    })
+});
+
 app.delete('/deleteTeam/:name', (req, res) => {
      mysqlConnection.query('DELETE FROM teams WHERE Name = ?',[req.params.name],(err, rows, fields) => {
         if (!err){
