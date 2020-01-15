@@ -76,6 +76,30 @@
         $result2 = curl_exec($ch2); // execute curl request
         curl_close($ch2);
         $data2 = new SimpleXMLElement($result2, LIBXML_NOCDATA);
+
+    //Validator
+    include "xsd/validator.php";
+    function libxml_display_errors() {
+        $errors = libxml_get_errors();
+        foreach ($errors as $error) {
+            print libxml_display_error($error);
+        }
+        libxml_clear_errors();
+    }
+    
+    // Enable user error handling
+    libxml_use_internal_errors(true);
+    
+    $xml = new DOMDocument();
+    $xml->load('http://localhost:3000/matchesXML');
+    
+    if (!$xml->schemaValidate('xsd/schema1.xsd')) {
+        print '<b>DOMDocument::schemaValidate() Generated Errors!</b>';
+        libxml_display_errors();
+    } else {
+        echo "<script>console.log('Validated!')</script>";
+    }
+
     ?>
     
     <br>

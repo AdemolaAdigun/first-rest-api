@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+       <xs:element name="matches">
+              <xs:complexType>
+                     <xs:sequence>
+                            <xs:element name="matches" maxOccurs="unbounded">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="MatchID" type="xs:int"></xs:element>
+                                                 <xs:element name="TeamHomeID" type="xs:int"></xs:element>
+                                                 <xs:element name="TeamHomeFormation" type="xs:int"></xs:element>
+                                                 <xs:element name="ResultOfTeamHome" type="xs:int"></xs:element>
+                                                 <xs:element name="TeamID" type="xs:int"></xs:element>
+                                                 <xs:element name="TeamName" type="xs:string"></xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                        </xs:sequence>
+                 </xs:complexType>
+          </xs:element>
+</xs:schema>

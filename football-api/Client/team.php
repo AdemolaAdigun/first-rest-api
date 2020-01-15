@@ -84,6 +84,29 @@
         $team = "team";
         // echo $team;
         // echo $url2;
+
+    //Validator
+        include "xsd/validator.php";
+        function libxml_display_errors() {
+        $errors = libxml_get_errors();
+        foreach ($errors as $error) {
+            print libxml_display_error($error);
+        }
+        libxml_clear_errors();
+        }
+    
+    // Enable user error handling
+        libxml_use_internal_errors(true);
+    
+        $xml = new DOMDocument();
+        $xml->load('http://localhost:3000/'.$_GET["name"].'/XML');
+    
+        if (!$xml->schemaValidate('xsd/schema2.xsd')) {
+        print '<b>DOMDocument::schemaValidate() Generated Errors!</b>';
+        libxml_display_errors();
+        } else {
+            echo "<script>console.log('Validated!')</script>";
+        }
     ?>
 <h2>First Leg data in XML</h2>
     <table style='width:100%'>
