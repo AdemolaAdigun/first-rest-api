@@ -40,9 +40,12 @@
             <th>Goals</th>
         </tr>
     <?php
-        for ($i = 0; $i < 5; $i += 2) {
-        echo "<tr><td><a href='team.php?name=" . $data[$i]["TeamName"] . "'>" . $data[$i]["TeamName"] . "</a></td><td>" . $data[$i]["ResultOfTeamHome"] . "</td><td>" . $data[$i + 1]["TeamName"] . "</td><td>" . $data[$i + 1]["ResultOfTeamHome"] . "</td></tr>";
+    $i = 0;
+        while ($i <= 8) {
+        echo "<tr><td><a href='Teams.php?name=" . $data[$i]["TeamName"] . "'>" . $data[$i]["TeamName"] . "</a></td><td>" . $data[$i]["ResultOfTeamHome"] . "</td><td>" . $data[$i + 2]["TeamName"] . "</td><td>" . $data[$i + 2]["ResultOfTeamHome"] . "</td></tr>";
+        $i +=4;
         }
+
     ?>
     </table>
     <br>
@@ -55,9 +58,11 @@
             <th>Goals</th>
         </tr>
     <?php
-        for ($i = 6; $i < 12; $i += 2) {
-        echo "<tr><td><a href='team.php?name=" . $data[$i]["TeamName"] . "'>" . $data[$i]["TeamName"] . "</a></td><td>" . $data[$i]["ResultOfTeamHome"] . "</td><td>" . $data[$i + 1]["TeamName"] . "</td><td>" . $data[$i + 1]["ResultOfTeamHome"] . "</td></tr>";
-    }
+    $p = 1;
+        while ($p < 12) {
+        echo "<tr><td><a href='Teams.php?name=" . $data[$p + 2]["TeamName"] . "'>" . $data[$p + 2]["TeamName"] . "</a></td><td>" . $data[$p + 2]["ResultOfTeamHome"] . "</td><td>" . $data[$p]["TeamName"] . "</td><td>" . $data[$p]["ResultOfTeamHome"] . "</td></tr>";
+        $p +=4;
+        }
     ?>
     </table>
 
@@ -114,9 +119,11 @@
             <th>Goals</th>
         </tr>
     <?php
-        for ($i = 0; $i < 5; $i+=2) {
-        echo "<tr><td><a href='team.php?name=" . $data2->matches[$i]->TeamName. "'>" . $data2->matches[$i]->TeamName. "</a></td><td>" . $data2->matches[$i]->ResultOfTeamHome . "</td><td>" . $data2->matches[$i+1]->TeamName . "</td><td>" . $data2->matches[$i+1]->ResultOfTeamHome . "</td></tr>";
-        }
+        $i = 0;
+        while ($i <= 8) {
+        echo "<tr><td><a href='Teams.php?name=" . $data2->matches[$i]->TeamName. "'>" . $data2->matches[$i]->TeamName. "</a></td><td>" . $data2->matches[$i]->ResultOfTeamHome . "</td><td>" . $data2->matches[$i+2]->TeamName . "</td><td>" . $data2->matches[$i+2]->ResultOfTeamHome . "</td></tr>";
+        $i +=4;
+    }
     ?>
     </table>
     <br>
@@ -129,9 +136,11 @@
             <th>Goals</th>
         </tr>
     <?php
-        for ($i = 6; $i < 12; $i += 2) {
-        echo "<tr><td><a href='team.php?name=" . $data2->matches[$i]->TeamName. "'>" . $data2->matches[$i]->TeamName. "</a></td><td>" . $data2->matches[$i]->ResultOfTeamHome . "</td><td>" . $data2->matches[$i+1]->TeamName . "</td><td>" . $data2->matches[$i+1]->ResultOfTeamHome . "</td></tr>";
-        }
+        $p = 1;
+        while ($p < 12) {
+        echo "<tr><td><a href='Teams.php?name=" . $data2->matches[$p + 2]->TeamName. "'>" . $data2->matches[$p + 2]->TeamName. "</a></td><td>" . $data2->matches[$p + 2]->ResultOfTeamHome . "</td><td>" . $data2->matches[$p]->TeamName . "</td><td>" . $data2->matches[$p]->ResultOfTeamHome . "</td></tr>";
+        $p += 4;
+    }
     ?>
     </table>
 </body>

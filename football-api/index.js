@@ -29,7 +29,7 @@ app.listen(3000, () => console.log('Express server is runnig at port no : 3000')
 
 /* Routes */
 app.get('/matches', (req, res) => {
-    mysqlConnection.query('SELECT MatchID, TeamHomeID, TeamHomeFormation, ResultOfTeamHome, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamHomeID = teams.TeamID UNION SELECT MatchID, TeamAwayID, TeamAwayFormation, ResultOfTeamAway, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamAwayID = teams.TeamID ORDER BY MatchID;', (err, rows, fields) => {
+    mysqlConnection.query('SELECT MatchID, TeamHomeID, TeamHomeFormation, ResultOfTeamHome, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamHomeID = teams.TeamID UNION SELECT MatchID, TeamAwayID, TeamAwayFormation, ResultOfTeamAway, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamAwayID = teams.TeamID ORDER BY TeamID, MatchID;', (err, rows, fields) => {
         if (!err)
             res.send(rows);
         else
@@ -39,9 +39,9 @@ app.get('/matches', (req, res) => {
 
 //Get all matches XML
 app.get('/matchesXML', (req, res) => {
-    mysqlConnection.query('SELECT MatchID, TeamHomeID, TeamHomeFormation, ResultOfTeamHome, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamHomeID = teams.TeamID UNION SELECT MatchID, TeamAwayID, TeamAwayFormation, ResultOfTeamAway, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamAwayID = teams.TeamID ORDER BY MatchID;', (err, rows, fields) => {
+    mysqlConnection.query('SELECT MatchID, TeamHomeID, TeamHomeFormation, ResultOfTeamHome, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamHomeID = teams.TeamID UNION SELECT MatchID, TeamAwayID, TeamAwayFormation, ResultOfTeamAway, TeamID, TeamName FROM matches INNER JOIN teams ON matches.TeamAwayID = teams.TeamID ORDER BY TeamID, MatchID;', (err, rows, fields) => {
         if (!err){
-            res.send(js2xmlparser.parse("matches",rows));
+            res.send(js2xmlparser.parse('matches',rows));
         }
         else
             console.log(err);
