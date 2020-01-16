@@ -1,0 +1,73 @@
+((w) =>{
+    W['schema'] = {
+    "title": "An array of items",
+    "items": {
+        "title": "An object value",
+        "required": [
+            "MatchID",
+            "TeamHomeID",
+            "TeamHomeFormation",
+            "ResultOfTeamHome",
+            "TeamID",
+            "Name"
+        ],
+        "properties": {
+            "MatchID": {
+                "title": "An integer value",
+                "default": 0,
+                "examples": [
+                    1
+                ],
+                "$id": "#/items/properties/MatchID",
+                "type": "integer"
+            },
+            "TeamHomeID": {
+                "title": "An integer value",
+                "default": 0,
+                "examples": [
+                    2
+                ],
+                "$id": "#/items/properties/TeamHomeID",
+                "type": "integer"
+            },
+            "TeamHomeFormation": {
+                "title": "An integer value",
+                "default": 0,
+                "examples": [
+                    433
+                ],
+                "$id": "#/items/properties/TeamHomeFormation",
+                "type": "integer"
+            },
+            "ResultOfTeamHome": {
+                "title": "An integer value",
+                "default": 0,
+                "examples": [
+                    1
+                ],
+                "$id": "#/items/properties/ResultOfTeamHome",
+                "type": "integer"
+            },
+            "TeamID": {
+                "title": "An integer value",
+                "default": 0,
+                "examples": [
+                    2
+                ],
+                "$id": "#/items/properties/TeamID",
+                "type": "integer"
+            },
+            "Name": {
+                "title": "A string value",
+                "default": "",
+                "pattern": "^(.*)$",
+                "examples": [
+                    "Barcelona"
+                ],
+                "$id": "#/items/properties/Name",
+                "type": "string"
+            }
+        }
+    }
+}
+});

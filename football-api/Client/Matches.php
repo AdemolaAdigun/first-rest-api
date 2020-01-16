@@ -10,6 +10,8 @@
             border: 1px solid black;
            }
     </style>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.10.2/ajv.bundle.js"></script>
+    <script src="js/schema1.js"></script> -->
 </head>
 
 
@@ -26,8 +28,21 @@
         $result = curl_exec($ch);
         curl_close($ch);
         $data = json_decode($result, true);
-        // var_dump($data);
+
+    // var_dump($data);
     ?>
+
+    <!-- <script>
+        var Ajv = require('ajv');
+        var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
+        var validate = ajv.compile('schema');
+        var valid = validate('http://localhost:3000/matches');
+        if (!valid){
+        console.log(validate.errors);
+        } 
+        else {
+            console.log("Valid");  
+    </script> -->
 
 <body>
     <h1>MATCHES DATA IN JSON</h1>
@@ -45,7 +60,6 @@
         echo "<tr><td><a href='Teams.php?name=" . $data[$i]["TeamName"] . "'>" . $data[$i]["TeamName"] . "</a></td><td>" . $data[$i]["ResultOfTeamHome"] . "</td><td>" . $data[$i + 2]["TeamName"] . "</td><td>" . $data[$i + 2]["ResultOfTeamHome"] . "</td></tr>";
         $i +=4;
         }
-
     ?>
     </table>
     <br>
@@ -65,7 +79,6 @@
         }
     ?>
     </table>
-
     
     <!-- XML DATA section -->
 
@@ -85,6 +98,7 @@
         $data2 = new SimpleXMLElement($result2, LIBXML_NOCDATA);
 
     //Validator
+
     include "xsd/validator.php";
     function libxml_display_errors() {
         $errors = libxml_get_errors();
@@ -95,6 +109,7 @@
     }
     
     // Enable user error handling
+
     libxml_use_internal_errors(true);
     
     $xml = new DOMDocument();
@@ -105,9 +120,8 @@
         libxml_display_errors();
     } else {
         echo "<script>console.log('Validated!')</script>";
-        echo "<p>XML VALIDATED!</p>";
+        echo "<p>XML VALID!</p>";
     }
-
     ?>
     
     <h2>First Leg</h2>
