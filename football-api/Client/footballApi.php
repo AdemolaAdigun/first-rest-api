@@ -64,6 +64,8 @@
     
     <!-- XML DATA section -->
 
+    <br>
+    <h1>MATCHES DATA IN XML</h1>
 
     <?php
     //Getting the data from Api in XML and storing it in an array
@@ -98,12 +100,11 @@
         libxml_display_errors();
     } else {
         echo "<script>console.log('Validated!')</script>";
+        echo "<p>XML VALIDATED!</p>";
     }
 
     ?>
     
-    <br>
-    <h1>MATCHES DATA IN XML</h1>
     <h2>First Leg</h2>
     <table style='width:100%'>
         <tr>

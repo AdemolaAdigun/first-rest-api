@@ -67,7 +67,7 @@
         }
     ?>
     </table>
-    <br> 
+    <br>
     <?php
     //XML DATA Section
         echo "<h1>".$_GET["name"]."</h1>";
@@ -106,9 +106,10 @@
         libxml_display_errors();
         } else {
             echo "<script>console.log('Validated!')</script>";
+            echo "<p>XML VALIDATED!</p>";
         }
     ?>
-<h2>First Leg data in XML</h2>
+    <h2>First Leg data in XML</h2>
     <table style='width:100%'>
         <tr>
             <th>Player name</th>
