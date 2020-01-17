@@ -38,7 +38,7 @@
     );
 
     if ($validator->isValid()) {
-        echo "JSON validates OK\n"; 
+        echo "JSON VALID!\n"; 
 ?>
 <body>
     <h2>First Leg data in JSON</h2>

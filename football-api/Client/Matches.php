@@ -43,7 +43,7 @@
     );
  
     if ($validator->isValid()) {
-    echo "JSON VALID\n";
+    echo "JSON VALID!\n";
     ?>
 
 <body>
