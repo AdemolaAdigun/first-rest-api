@@ -131,7 +131,6 @@
         } else {
             echo "<script>console.log('Validated!')</script>";
             echo "<p>XML VALIDATED!</p>";
-        }
     ?>
     <h2>First Leg data in XML</h2>
     <table style='width:100%'>
@@ -175,6 +174,7 @@
         for($i=11;$i<22;$i++){
             echo "<tr><td>".$data2->$team[$i]->Name."</td><td>".$data2->$team[$i]->Goals."</td><td>".$data2->$team[$i]->Shots."</td><td>".$data2->$team[$i]->ShotsOnTarget."</td><td>".$data2->$team[$i]->Fouls."</td><td>".$data2->$team[$i]->YellowCards."</td><td>".$data2->$team[$i]->RedCards."</td><td>".$data2->$team[$i]->Passes."</td><td>".$data2->$team[$i]->Dribbles."</td><td>".$data2->$team[$i]->Tackles."</td><td>".$data2->$team[$i]->Saves."</td></tr>";
         }
+    }
     ?>
     </table>
 </body>

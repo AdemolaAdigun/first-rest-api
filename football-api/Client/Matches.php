@@ -131,7 +131,6 @@
     } else {
         echo "<script>console.log('Validated!')</script>";
         echo "<p>XML VALID!</p>";
-    }
     ?>
     
     <h2>First Leg</h2>
@@ -164,6 +163,7 @@
         while ($p < 12) {
         echo "<tr><td><a href='Teams.php?name=" . $data2->matches[$p + 2]->TeamName. "'>" . $data2->matches[$p + 2]->TeamName. "</a></td><td>" . $data2->matches[$p + 2]->ResultOfTeamHome . "</td><td>" . $data2->matches[$p]->TeamName . "</td><td>" . $data2->matches[$p]->ResultOfTeamHome . "</td></tr>";
         $p += 4;
+    }
     }
     ?>
     </table>

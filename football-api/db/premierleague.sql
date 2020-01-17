@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2020 at 04:27 PM
+-- Generation Time: Jan 17, 2020 at 02:43 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -195,21 +195,20 @@ CREATE TABLE `matches` (
   `TeamHomeFormation` int(11) NOT NULL,
   `TeamAwayFormation` int(11) NOT NULL,
   `ResultOfTeamHome` int(11) NOT NULL,
-  `ResultOfTeamAway` int(11) NOT NULL,
-  `Date` date NOT NULL
+  `ResultOfTeamAway` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `matches`
 --
 
-INSERT INTO `matches` (`MatchID`, `TeamHomeID`, `TeamAwayID`, `TeamHomeFormation`, `TeamAwayFormation`, `ResultOfTeamHome`, `ResultOfTeamAway`, `Date`) VALUES
-(1, 1, 2, 433, 433, 3, 1, '2019-10-05'),
-(2, 3, 4, 4231, 442, 6, 3, '2019-11-09'),
-(3, 5, 6, 442, 433, 3, 1, '2019-11-16'),
-(6, 4, 3, 433, 433, 3, 6, '2019-11-23'),
-(7, 2, 1, 442, 4231, 1, 3, '2019-11-30'),
-(8, 6, 5, 433, 442, 1, 3, '2019-12-07');
+INSERT INTO `matches` (`MatchID`, `TeamHomeID`, `TeamAwayID`, `TeamHomeFormation`, `TeamAwayFormation`, `ResultOfTeamHome`, `ResultOfTeamAway`) VALUES
+(1, 1, 2, 433, 433, 3, 1),
+(2, 3, 4, 4231, 442, 6, 3),
+(3, 5, 6, 442, 433, 3, 1),
+(6, 4, 3, 433, 433, 3, 6),
+(7, 2, 1, 442, 4231, 1, 3),
+(8, 6, 5, 433, 442, 1, 3);
 
 -- --------------------------------------------------------
 
