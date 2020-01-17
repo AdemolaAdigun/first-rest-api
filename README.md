@@ -26,14 +26,15 @@ I chose to represent my data on the client side using a tables because it is cle
 3. download and install postman for testing
 4. download and install XAMPP to host local database
 5. clone this repository
-6. open football-api folder in VS code
-7. open file index.js
-8. press "ctrl" + "`" to launch terminal
-9. insert "node index.js" in terminal to start running API
+6. import .../db/premierleague.sql to local server
+7. open .../football-api folder in VS code
+8. open file index.js in VS code
+9. press "ctrl" + "`" to launch terminal
 10. start xampp and turn on Apache and MySQL services
-11. download PHP server extension
-12. open PHP server extensions settings and set port number to 8080
-12. Run php client file "Matches.php" with visual studio code PHP server
+11. insert "node index.js" in terminal and press enter to start running API
+12. download PHP server extension
+13. open PHP server extensions settings and set port number to 8080
+14. Run php client file "Matches.php" with visual studio code PHP server extension
 
 #### Validation
 
