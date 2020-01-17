@@ -41,6 +41,7 @@
         echo "JSON VALID!\n"; 
 ?>
 <body>
+    <p><a href="Matches.php">Go to Matches</a></p>
     <h2>First Leg data in JSON</h2>
     <table style='width:100%'>
         <tr>
