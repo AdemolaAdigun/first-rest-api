@@ -10,8 +10,6 @@
             border: 1px solid black;
            }
     </style>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.10.2/ajv.bundle.js"></script>
-    <script src="js/schema1.js"></script> -->
 </head>
 
 
@@ -30,19 +28,23 @@
         $data = json_decode($result, true);
 
     // var_dump($data);
+    
+    require_once 'vendor/autoload.php';
+ 
+    use JsonSchema\Validator;
+    use JsonSchema\Constraints\Constraint;
+ 
+    $config = json_decode(file_get_contents('http://localhost:3000/matches'));
+    $validator = new Validator; 
+    $validator->validate(
+    $config,
+    (object)['$ref' => 'file://' . realpath('js/schema1.json')],
+    Constraint::CHECK_MODE_APPLY_DEFAULTS
+    );
+ 
+    if ($validator->isValid()) {
+    echo "JSON VALID\n";
     ?>
-
-    <!-- <script>
-        var Ajv = require('ajv');
-        var ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
-        var validate = ajv.compile('schema');
-        var valid = validate('http://localhost:3000/matches');
-        if (!valid){
-        console.log(validate.errors);
-        } 
-        else {
-            console.log("Valid");  
-    </script> -->
 
 <body>
     <h1>MATCHES DATA IN JSON</h1>
@@ -79,6 +81,14 @@
         }
     ?>
     </table>
+    <?php
+    } else {
+        echo "JSON validation errors:\n";
+        foreach ($validator->getErrors() as $error) {
+            print_r($error);
+        }
+        }
+    ?>
     
     <!-- XML DATA section -->
 

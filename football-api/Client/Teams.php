@@ -22,6 +22,23 @@
     curl_close($curl);
     $data = json_decode($result, true);
     //var_dump($data);
+
+//JSON VALIDATOR
+    require_once 'vendor/autoload.php';
+ 
+    use JsonSchema\Validator;
+    use JsonSchema\Constraints\Constraint;
+
+    $config = json_decode(file_get_contents('http://localhost:3000/'.$_GET["name"].''));
+    $validator = new Validator; 
+    $validator->validate(
+        $config,
+        (object)['$ref' => 'file://' . realpath('js/schema2.json')],
+        Constraint::CHECK_MODE_APPLY_DEFAULTS
+    );
+
+    if ($validator->isValid()) {
+        echo "JSON validates OK\n"; 
 ?>
 <body>
     <h2>First Leg data in JSON</h2>
@@ -67,6 +84,14 @@
         }
     ?>
     </table>
+    <?php
+    } else {
+        echo "JSON validation errors:\n";
+        foreach ($validator->getErrors() as $error) {
+            print_r($error);
+        }
+        } 
+    ?>
     <br>
     <?php
     //XML DATA Section
@@ -82,8 +107,6 @@
         $data2 = new SimpleXMLElement($result2, LIBXML_NOCDATA);
         //"<pre>".var_dump($data2)."</pre>";
         $team = "team";
-        // echo $team;
-        // echo $url2;
 
     //Validator
         include "xsd/validator.php";

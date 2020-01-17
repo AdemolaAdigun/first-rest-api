@@ -1,5 +1,4 @@
-((w) =>{
-    W['schema'] = {
+ {
     "title": "An array of items",
     "items": {
         "title": "An object value",
@@ -70,4 +69,3 @@
         }
     }
 }
-});
