@@ -37,10 +37,10 @@ I chose to represent my data on the client side using a tables because it is cle
 
 #### Validation
 
-1. Matches page XML is validated by xsd file in xsd folder (.../xsd/schema1.xsd)
-2. Matches page XML is validated by xsd file in xsd folder (.../xsd/schema1.xsd)
-3. Matches page JSON can be validated by copying code in .../json_schema/matches.js and pasting it in tests in postman
-4. Teams page JSON can be validated by copying code in .../json_schema/teams.js and pasting it in tests in postman
+1. Matches page XML is validated by .../xsd/schema1.xsd
+2. Matches page XML is validated by .../xsd/schema1.xsd
+3. Matches page JSON is validated by .../js/schema1.json
+4. Teams page JSON is validated by  .../js/schema2.json
 
 ## References
 
