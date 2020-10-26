@@ -1,9 +1,5 @@
 # DOCUMENTATION
 
-## Assignment
-
-Nowadays, offering data can be seen as a service. You have worked with these services multiple times as a student. The weather station in C#1 and the final assignment of PHP1 are examples of applications that use (consume) a service that offers data. We call this service an Application Programming Interface or API. This data often gets send by using RESTful calls. REST stands for REprestentational State Tranfer and is often used to create API’s. The assignment for  this course it to create a API based on the REST principle, XML and JSON. In addition, you will need to visualize the data you offer in a clear and thought out manner.
-
 ## My Solution
 
 I decided to create a Restful service to serve data from a fictional football (soccer) tournament. I manually created my dataset consisting of 4 tables namely: Matches.sql, player.sql, actions.sql and teams.sql (see folder db). My goal is to present data of all the legs(home and away) of the different matche/score-line that took place at the tournament (i.e. Real Madrid 3 v Barcelona 1) and also be able to present player data per team from each of these different matches and legs(home and away) to the client. My api will also have RESTful functionalities like GET, POST, DELETE and PUT to be able to manipulate the data in the database.
