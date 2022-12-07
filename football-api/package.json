@@ -10,8 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "ajv": "^6.10.2",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "express-xml-bodyparser": "^0.3.0",
     "js2xmlparser": "^4.0.0",
     "jsontoxml": "^1.0.1",
