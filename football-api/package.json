@@ -11,7 +11,7 @@
   "dependencies": {
     "ajv": "^6.10.2",
     "body-parser": "^1.18.2",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-xml-bodyparser": "^0.3.0",
     "js2xmlparser": "^4.0.0",
     "jsontoxml": "^1.0.1",
